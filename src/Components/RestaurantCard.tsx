@@ -7,10 +7,14 @@ interface Props {
   photos: string[];
   rating: number;
   isClosed: boolean;
+  location: {
+    city: string;
+    address1: string;
+  };
 }
 
 function RestaurantCard(props: Props) {
-  const { name, display_phone, photos, rating, isClosed } = props;
+  const { name, display_phone, photos, rating, location, isClosed } = props;
 
   return (
     <Card>
@@ -31,7 +35,9 @@ function RestaurantCard(props: Props) {
           rowGap={"5px"}
           mb={"0.5rem"}
         >
-          <Text fontSize={"xl"}>{name}</Text>
+          <Text fontSize={"lg"}>
+            {name}, {location.address1}
+          </Text>
           <Box bgColor={"#FFFFFFEB"} px="10px" rounded={"2xl"}>
             {isClosed ? (
               <Text fontSize={"sm"} color={"red.500"}>

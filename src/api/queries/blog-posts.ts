@@ -28,6 +28,7 @@ export const FETCH_BLOG_POST_AND_RESTAURANTS = gql`
           is_closed
           location {
             city
+            address1
           }
         }
       }

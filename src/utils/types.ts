@@ -15,6 +15,7 @@ export type BlogPost = {
       is_closed: boolean;
       location: {
         city: string;
+        address1: string;
       };
       photos: string[];
     }[];

@@ -58,6 +58,7 @@ function SingleBlogPost(props: Props) {
                 photos={business.photos}
                 rating={business.rating}
                 isClosed={business.is_closed}
+                location={business.location}
               />
             );
           })}
