@@ -1,11 +1,7 @@
-import { Box, Flex, Heading, Text, Grid } from "@chakra-ui/react";
-import { FETCH_BLOG_POSTS } from "api/queries/blog-posts";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import Head from "next/head";
-import client from "api/client";
-import { BlogPost } from "utils/types";
-import BlogPostCard from "Components/BlogPostCard";
 
-const Home = ({ blogPosts }: { blogPosts: BlogPost[] }) => {
+const Home = () => {
   return (
     <>
       <Head>
@@ -40,29 +36,6 @@ const Home = ({ blogPosts }: { blogPosts: BlogPost[] }) => {
           >
             Featured Blog Posts
           </Heading>
-          <Grid
-            width={"100%"}
-            maxW={"800px"}
-            margin={"0 auto"}
-            columnGap={6}
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              md: "repeat(2, 1fr)",
-              lg: "repeat(3, 1fr)",
-            }}
-            rowGap={6}
-            justifySelf={"center"}
-          >
-            {blogPosts.map((blogPost) => {
-              return (
-                <BlogPostCard
-                  key={blogPost.id}
-                  title={blogPost.title}
-                  slug={blogPost.slug}
-                />
-              );
-            })}
-          </Grid>
         </Box>
       </Box>
     </>
@@ -70,14 +43,3 @@ const Home = ({ blogPosts }: { blogPosts: BlogPost[] }) => {
 };
 
 export default Home;
-
-export async function getStaticProps() {
-  const data = await client.request(FETCH_BLOG_POSTS);
-  const blogPosts: BlogPost[] = data.blogPosts;
-
-  return {
-    props: {
-      blogPosts,
-    },
-  };
-}
