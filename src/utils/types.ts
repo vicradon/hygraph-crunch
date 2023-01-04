@@ -5,19 +5,17 @@ export type BlogPost = {
   body?: {
     html: string;
   };
+  city?: string;
   restaurants?: {
-    total: number;
-    business: {
-      alias: string;
-      name: string;
-      display_phone: string;
-      rating: number;
-      is_closed: boolean;
-      location: {
-        city: string;
-        address1: string;
-      };
-      photos: string[];
-    }[];
-  };
+    alias: string;
+    name: string;
+    display_phone: string;
+    rating: number;
+    is_closed: boolean;
+    location: {
+      city: string;
+      address1: string;
+    };
+    photos: string[];
+  }[];
 };
